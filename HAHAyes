@@ -518,7 +518,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 		while true do
 			wait(0.18)
 			game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Ying19")
-			whait(0.18)
+			wait(0.18)
 			game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Ying18") 
 			wait(0.18)
 			game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Ying17") 
@@ -725,3 +725,8 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 end
 coroutine.wrap(LFKJCS_fake_script)()
+
+while true do
+    wait(0)
+    print("whitelisted")
+end
