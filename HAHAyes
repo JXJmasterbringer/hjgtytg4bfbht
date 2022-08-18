@@ -1,3 +1,9 @@
+game.StarterGui:SetCore("SendNotification", {
+	Title = ":3 ty for use my gui";
+	Text = "Whitelisted enjoy <3";
+	Duration = 7;
+	})
+	
 for i,v in pairs(game.CoreGui:GetChildren()) do
 	if v.Name == 'NinjaGui' then
 		v:Remove()
@@ -534,6 +540,10 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 			game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Ying12") 
 			wait(0.18)
 		end
+local message = Instance.new("Message",workspace)
+message.Text = "u need 2 milhion for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--RainbowYang
@@ -557,6 +567,10 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 			game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Yang12") 
 			wait(0.18)
 		end
+local message = Instance.new("Message",workspace)
+message.Text = "u need 2 milhion for equip it."
+wait(4)
+message:Destroy()
 	end)
 	--CrashServer
 	CrashServer.MouseButton1Down:connect(function()
@@ -574,31 +588,55 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	--BestYingSword
 	BestYingSword.MouseButton1Down:connect(function()
 		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Sword", "UltraKatana")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 10 milhion for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--BestYangSword
 	BestYangSword.MouseButton1Down:connect(function()
 		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Sword", "BlackAndWhiteWingedSword")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 10 milhion for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--BestYingClothe
 	BestYingClothe.MouseButton1Down:connect(function()
 		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Ying26")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 10 milhion for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--BestYangClothe
 	BestYangClothe.MouseButton1Down:connect(function()
-		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Yang26") --best Yang Cloth
+		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Cloth", "Yang26")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 10 milhion for equip it."
+wait(4)
+message:Destroy() 
 	end)
 
 	--BestShurikenYing
 	BestShurikenYing.MouseButton1Down:connect(function()
 		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Shuriken", "Shuriken9Ying")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 1 milhion and 500 for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--BestShurikenYang
 	BestShurikenYang.MouseButton1Down:connect(function()
 		game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("Shuriken", "Shuriken9Yang")
+local message = Instance.new("Message",workspace)
+message.Text = "u need 1 milhion and 500 for equip it."
+wait(4)
+message:Destroy()
 	end)
 
 	--OpenKillBar
@@ -727,6 +765,6 @@ end
 coroutine.wrap(LFKJCS_fake_script)()
 
 while true do
-    wait(0)
+    wait(10)
     print("whitelisted")
 end
