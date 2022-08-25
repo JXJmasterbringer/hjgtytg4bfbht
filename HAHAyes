@@ -1,5 +1,5 @@
 game.StarterGui:SetCore("SendNotification", {
-	Title = ":3 ty for use my gui";
+	Title = "wellcome my nigga <3";
 	Text = "Whitelisted enjoy <3";
 	Duration = 7;
 	})
