@@ -1,0 +1,169 @@
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local Rebirth = Instance.new("TextButton")
+local Mastery = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local RebirthLoop = Instance.new("TextButton")
+local MasteryLoop = Instance.new("TextButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local Open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.481210887, 0, 0.367720455, 0)
+main.Size = UDim2.new(0, 369, 0, 261)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+Rebirth.Name = "Rebirth"
+Rebirth.Parent = main
+Rebirth.BackgroundColor3 = Color3.fromRGB(108, 0, 0)
+Rebirth.Position = UDim2.new(0, 0, 0.153256714, 0)
+Rebirth.Size = UDim2.new(0, 92, 0, 35)
+Rebirth.Font = Enum.Font.SourceSans
+Rebirth.Text = "Rebirth"
+Rebirth.TextColor3 = Color3.fromRGB(0, 0, 0)
+Rebirth.TextSize = 14.000
+Rebirth.MouseButton1Down:connect(function()
+    game.ReplicatedStorage.Rebirth:FireServer("")
+end)
+
+Mastery.Name = "Mastery"
+Mastery.Parent = main
+Mastery.BackgroundColor3 = Color3.fromRGB(108, 0, 0)
+Mastery.Position = UDim2.new(0.750677526, 0, 0.153256714, 0)
+Mastery.Size = UDim2.new(0, 92, 0, 35)
+Mastery.Font = Enum.Font.SourceSans
+Mastery.Text = "Mastery"
+Mastery.TextColor3 = Color3.fromRGB(0, 0, 0)
+Mastery.TextSize = 14.000
+Mastery.MouseButton1Down:connect(function()
+    game.ReplicatedStorage.RebirthMastery:FireServer("")
+end)
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel.Size = UDim2.new(0, 369, 0, 40)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Delusion Recovery "
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+Close.Name = "Close"
+Close.Parent = main
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+Close.Position = UDim2.new(0.937669396, 0, 0, 0)
+Close.Size = UDim2.new(0, 23, 0, 24)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 14.000
+Close.MouseButton1Down:connect(function()
+main.Visible = false
+
+end)
+
+TextLabel_2.Parent = main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+TextLabel_2.Position = UDim2.new(0, 0, 0.287356317, 0)
+TextLabel_2.Size = UDim2.new(0, 369, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Risk Area"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 14.000
+
+RebirthLoop.Name = "RebirthLoop"
+RebirthLoop.Parent = main
+RebirthLoop.BackgroundColor3 = Color3.fromRGB(124, 0, 0)
+RebirthLoop.Position = UDim2.new(0, 0, 0.482758582, 0)
+RebirthLoop.Size = UDim2.new(0, 108, 0, 41)
+RebirthLoop.Font = Enum.Font.SourceSans
+RebirthLoop.Text = "Rebirth Loop"
+RebirthLoop.TextColor3 = Color3.fromRGB(0, 0, 0)
+RebirthLoop.TextSize = 14.000
+RebirthLoop.MouseButton1Down:connect(function()
+    while true do
+        wait(10)
+    game.ReplicatedStorage.Rebirth:FireServer("")
+    wait(4)
+    game.ReplicatedStorage.Rebirth:FireServer("")
+    wait(3)
+    game.ReplicatedStorage.Rebirth:FireServer("")
+    end
+end)
+
+MasteryLoop.Name = "MasteryLoop"
+MasteryLoop.Parent = main
+MasteryLoop.BackgroundColor3 = Color3.fromRGB(109, 0, 0)
+MasteryLoop.Position = UDim2.new(0.704607069, 0, 0.482758582, 0)
+MasteryLoop.Size = UDim2.new(0, 109, 0, 41)
+MasteryLoop.Font = Enum.Font.SourceSans
+MasteryLoop.Text = "Mastery Loop"
+MasteryLoop.TextColor3 = Color3.fromRGB(0, 0, 0)
+MasteryLoop.TextSize = 14.000
+MasteryLoop.MouseButton1Down:connect(function()
+    while true do
+        wait(10)
+    game.ReplicatedStorage.RebirthMastery:FireServer("")
+    wait(4)
+    game.ReplicatedStorage.RebirthMastery:FireServer("")
+    wait(3)
+    game.ReplicatedStorage.RebirthMastery:FireServer("")
+    end
+end)
+
+TextLabel_3.Parent = main
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+TextLabel_3.Position = UDim2.new(0, 0, 0.639846742, 0)
+TextLabel_3.Size = UDim2.new(0, 369, 0, 33)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "By ADAMANTIUN#0001"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 14.000
+
+Open.Name = "Open"
+Open.Parent = ScreenGui
+Open.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Open.Position = UDim2.new(0.89457202, 0, 0.594009995, 0)
+Open.Size = UDim2.new(0, 101, 0, 31)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "OpenRecovery"
+Open.TextColor3 = Color3.fromRGB(0, 0, 0)
+Open.TextSize = 14.000
+Open.MouseButton1Down:connect(function()
+   main.Visible = true
+end)
+---misc--- 
+
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "wellcome To Delusion";
+	Text = "Caution whit Recovery functions it may can ban u)";
+	Duration = 9;
+	})
+
+wait(7)
+
+	  game.StarterGui:SetCore("SendNotification", {
+        Title = "observation";
+        Text = "if u use loops wait 10 sec to it start, the script will try to be mosth safe possible and undetected )";
+        Duration = 10;
+        })
+
+	
+  
+
