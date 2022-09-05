@@ -574,9 +574,14 @@ message:Destroy()
 	end)
 	--CrashServer
 	CrashServer.MouseButton1Down:connect(function()
+	    _G.Crash = not _G.Crash
 		local RunService = game:GetService("RunService")
-		RunService.Heartbeat:Connect(function(step)  
-			game:GetService("ReplicatedStorage").RemoteEvent.SpawnCharacterEvent:FireServer("RandomSpawn")
+		_G.Loop = RunService.Heartbeat:Connect(function(step)  
+		    if _G.Crash then
+			    game:GetService("ReplicatedStorage").RemoteEvent.SpawnCharacterEvent:FireServer("RandomSpawn")
+		    else
+		        _G.Loop:Disconnect()
+		    end
 		end)
 	end)
 
