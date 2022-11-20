@@ -7,7 +7,7 @@ end
 
 game.StarterGui:SetCore("SendNotification", {
     Title = "wellcome";
-    Text = "thanks for using my script, the script copyed the link for discord";
+    Text = "thanks for using my script, an link for my discord and for key got copy for u clipboard";
     Duration = 7;
     })
 local ScreenGui = Instance.new("ScreenGui")
