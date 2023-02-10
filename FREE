@@ -57,12 +57,22 @@ Players.PlayerAdded:Connect(function(CKP)
   end)
 end)
 
+
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   ScriptWare_LOADED and "ScriptWare" or
+   "random exploit"
+
+local url =
    "https://discord.com/api/webhooks/1073708931815325716/Ube2du08JzI4rUzTkbpWwUMlDOzMZNw2v248sQtBWmzJjqF_OZbxr40txIcu8ybBHflX"
 local data = {
    ["content"] = "Some idiot executed ur script",
    ["embeds"] = {
        {
-           ["title"] = **free version**",
+           ["title"] = "**Paid version**",
            ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
