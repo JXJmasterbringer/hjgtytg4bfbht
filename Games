@@ -1,6 +1,0 @@
-if game.PlaceId == 823323202 then  
-wait(0)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/pago/main/ScriptPago",true))()
-wait(2)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/page3/main/page2",true))()
-end
