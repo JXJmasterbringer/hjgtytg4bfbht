@@ -60,7 +60,7 @@ end)
 
 setclipboard("https://discord.gg/tKFzvZysff")
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/page3/main/Misc",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/page3/main/page3%20free",true))()
 wait()
 
 for i,v in pairs(game.CoreGui:GetChildren()) do
