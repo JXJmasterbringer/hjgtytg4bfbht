@@ -210,7 +210,7 @@ Adminscript.Text = "Admin Commands"
 Adminscript.TextColor3 = Color3.fromRGB(0, 0, 0)
 Adminscript.TextSize = 14.000
 Adminscript.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
 RainbownYang.Name = "RainbownYang"
