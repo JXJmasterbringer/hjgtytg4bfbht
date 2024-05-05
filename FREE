@@ -1,3 +1,6 @@
+game.Players.LocalPlayer:Kick("script is down, please try again later.")
+
+
 --[[
   _____             ______                   _             
  |  __ \           |  ____|                 | |            
