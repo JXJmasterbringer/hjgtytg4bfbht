@@ -1662,8 +1662,8 @@ AutoFarmMode.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoFarmMode.TextSize = 14.000
 AutoFarmMode.MouseButton1Down:connect(function()
 	game.StarterGui:SetCore("SendNotification", {
-		Title = "Tesla Gui";
-		Text = "Buy The Complete Version to acess it";
+		Title = "Comming Soon";
+		Text = "for Now it's only on paid version";
 		Duration = 7;
 	})
 end)
