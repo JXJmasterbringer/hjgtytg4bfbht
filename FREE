@@ -1662,24 +1662,24 @@ AutoFarmMode.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoFarmMode.TextSize = 14.000
 AutoFarmMode.MouseButton1Down:connect(function()
 	game.StarterGui:SetCore("SendNotification", {
-			Title = "Ilusion";
-			Text = "Now Just Press AutoFarm";
-			Duration = 15;
-		})
+		Title = "Ilusion";
+		Text = "Now Just Press AutoFarm";
+		Duration = 15;
+	})
 
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/AdamantiunGG/NinjaAssasinMainScript/main/anti%20afk", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/AdamantiunGG/NinjaAssasinMainScript/main/anti%20afk", true))()
 
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3000, 3000, 3000))
-		wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3000, 3000, 3000)
+wait()
 
-		wait(1)
-		while wait() do
-			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-				if v.name == "Train" then
-					v.Parent = game.Players.LocalPlayer.Character
-				end
-			end
+wait(1)
+while wait() do
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+		if v.name == "Train" then
+			v.Parent = game.Players.LocalPlayer.Character
 		end
+	end
+end
 end)
 
 
@@ -2129,7 +2129,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 		Closeall() Misc.Visible = true
 	end)
 
-	
+
 
 	tab4Misc.MouseButton1Down:connect(function()
 		Closeall() clothes.Visible = true
