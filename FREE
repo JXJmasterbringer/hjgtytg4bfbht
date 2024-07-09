@@ -21,6 +21,25 @@ if request then
 
 end
 
+local request = (syn and syn.request) or (http and http.request) or http_request
+
+if request then 
+	request({
+		Url = "http://127.0.0.1:6463/rpc?v=1",
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json",
+			["Origin"] = "https://discord.com"
+		},
+		Body = game:GetService("HttpService"):JSONEncode({
+			cmd = "INVITE_BROWSER",
+			args = {code = "9ewWru4H5M"},
+			nonce = game:GetService("HttpService"):GenerateGUID(false)
+		}),
+	})
+
+end
+
 local NinjaGui = Instance.new("ScreenGui")
 local about = Instance.new("Frame")
 local ImageLabel = Instance.new("ImageLabel")
@@ -174,8 +193,8 @@ end
 
 local Block = Instance.new("Part", workspace)
 Block.Name = "PlatformBlock"
-Block.Position = Vector3.new(3000, 3000, 3000)
-Block.Size = Vector3.new(100, 3, 100)
+Block.Position = Vector3.new(600000, 600000, 600000)
+Block.Size = Vector3.new(10000, 3, 10000)
 Block.BrickColor = BrickColor.Random()
 Block.CanCollide = true
 Block.Anchored = true
@@ -297,7 +316,7 @@ DevTeam.BorderSizePixel = 0
 DevTeam.Position = UDim2.new(0.0145719489, 0, 1, 0)
 DevTeam.Size = UDim2.new(0, 533, 0, 122)
 DevTeam.Font = Enum.Font.SourceSans
-DevTeam.Text = "Dev team: Kevim(cbzql), Anon(Verlitarim) biel(bielsamorim1) and Marcus(astadnrt)"
+DevTeam.Text = "Dev team: Kevim(cbzql), Anon(Verlitarim)And biel(bielsamorim1)"
 DevTeam.TextColor3 = Color3.fromRGB(255, 255, 255)
 DevTeam.TextSize = 14.000
 
@@ -309,7 +328,7 @@ alphatest.BorderSizePixel = 0
 alphatest.Position = UDim2.new(0.0145719489, 0, 1.99454224, 0)
 alphatest.Size = UDim2.new(0, 540, 0, 50)
 alphatest.Font = Enum.Font.SourceSans
-alphatest.Text = "alpha tester: darko,Myx and Lightning"
+alphatest.Text = "alpha tester: darko"
 alphatest.TextColor3 = Color3.fromRGB(231, 231, 231)
 alphatest.TextSize = 14.000
 
@@ -332,7 +351,7 @@ changelog.BorderSizePixel = 0
 changelog.Position = UDim2.new(0.0145719489, 0, 2.47989511, 0)
 changelog.Size = UDim2.new(0, 533, 0, 199)
 changelog.Font = Enum.Font.SourceSans
-changelog.Text = "Changelog: v2.3: added auto farm mode"
+changelog.Text = "Changelog: v2.3: released gamepasses"
 changelog.TextColor3 = Color3.fromRGB(255, 255, 255)
 changelog.TextSize = 14.000
 
@@ -356,7 +375,7 @@ watermark.BorderSizePixel = 0
 watermark.Position = UDim2.new(0.774634182, 0, -0.0417171121, 0)
 watermark.Size = UDim2.new(0, 327, 0, 33)
 watermark.Font = Enum.Font.SourceSans
-watermark.Text = "Tesla Gui  v2: Free Build"
+watermark.Text = "Tesla Gui  v2 public version :D"
 watermark.TextColor3 = Color3.fromRGB(222, 92, 254)
 watermark.TextSize = 14.000
 
@@ -1163,66 +1182,6 @@ tab6Ga.Text = "Misc"
 tab6Ga.TextColor3 = Color3.fromRGB(0, 0, 0)
 tab6Ga.TextSize = 14.000
 
-Gamepass4.Name = "Gamepass4"
-Gamepass4.Parent = GamepassLabel
-Gamepass4.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Gamepass4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Gamepass4.BorderSizePixel = 0
-Gamepass4.Position = UDim2.new(0, 0, 1.95089924, 0)
-Gamepass4.Size = UDim2.new(0, 82, 0, 46)
-Gamepass4.Font = Enum.Font.SourceSans
-Gamepass4.Text = "Scythe1"
-Gamepass4.TextColor3 = Color3.fromRGB(255, 248, 37)
-Gamepass4.TextSize = 14.000
-Gamepass4.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "GrimAxe")
-end)
-
-Gamepass1.Name = "Gamepass1"
-Gamepass1.Parent = GamepassLabel
-Gamepass1.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Gamepass1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Gamepass1.BorderSizePixel = 0
-Gamepass1.Position = UDim2.new(0.602914393, 0, 1.95089924, 0)
-Gamepass1.Size = UDim2.new(0, 105, 0, 46)
-Gamepass1.Font = Enum.Font.SourceSans
-Gamepass1.Text = "Scyte4"
-Gamepass1.TextColor3 = Color3.fromRGB(255, 248, 37)
-Gamepass1.TextSize = 14.000
-Gamepass1.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "BoneScythe")
-end)
-
-Gamepass2.Name = "Gamepass2"
-Gamepass2.Parent = GamepassLabel
-Gamepass2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Gamepass2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Gamepass2.BorderSizePixel = 0
-Gamepass2.Position = UDim2.new(0.794171214, 0, 1.95089924, 0)
-Gamepass2.Size = UDim2.new(0, 113, 0, 46)
-Gamepass2.Font = Enum.Font.SourceSans
-Gamepass2.Text = "scythe2"
-Gamepass2.TextColor3 = Color3.fromRGB(255, 248, 37)
-Gamepass2.TextSize = 14.000
-Gamepass2.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "ScytheOfSingularity")
-end)
-
-Gamepass3.Name = "Gamepass3"
-Gamepass3.Parent = GamepassLabel
-Gamepass3.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Gamepass3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Gamepass3.BorderSizePixel = 0
-Gamepass3.Position = UDim2.new(0.149362475, 0, 1.95089924, 0)
-Gamepass3.Size = UDim2.new(0, 86, 0, 46)
-Gamepass3.Font = Enum.Font.SourceSans
-Gamepass3.Text = "Scyte3"
-Gamepass3.TextColor3 = Color3.fromRGB(255, 248, 37)
-Gamepass3.TextSize = 14.000
-Gamepass3.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "BatWingScythe")
-end)
-
 PizzaShuriken.Name = "Pizza Shuriken"
 PizzaShuriken.Parent = GamepassLabel
 PizzaShuriken.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
@@ -1312,35 +1271,6 @@ RainbowSword.TextColor3 = Color3.fromRGB(255, 44, 139)
 RainbowSword.TextSize = 14.000
 RainbowSword.MouseButton1Down:connect(function()
 	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("RainbowPass", "UnicornSword")
-end)
-VipCloth.Name = "VipCloth"
-VipCloth.Parent = GamepassLabel
-VipCloth.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-VipCloth.BorderColor3 = Color3.fromRGB(0, 0, 0)
-VipCloth.BorderSizePixel = 0
-VipCloth.Position = UDim2.new(0.446265936, 0, 1.95089924, 0)
-VipCloth.Size = UDim2.new(0, 86, 0, 46)
-VipCloth.Font = Enum.Font.SourceSans
-VipCloth.Text = "Vip Cloth"
-VipCloth.TextColor3 = Color3.fromRGB(255, 248, 37)
-VipCloth.TextSize = 14.000
-VipCloth.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "VipPackCloth")
-end)
-
-VipShuriken.Name = "VipShuriken"
-VipShuriken.Parent = GamepassLabel
-VipShuriken.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-VipShuriken.BorderColor3 = Color3.fromRGB(0, 0, 0)
-VipShuriken.BorderSizePixel = 0
-VipShuriken.Position = UDim2.new(0.306010932, 0, 1.95089924, 0)
-VipShuriken.Size = UDim2.new(0, 77, 0, 46)
-VipShuriken.Font = Enum.Font.SourceSans
-VipShuriken.Text = "Vip Shuriken"
-VipShuriken.TextColor3 = Color3.fromRGB(255, 248, 37)
-VipShuriken.TextSize = 14.000
-VipShuriken.MouseButton1Down:connect(function()
-	game.ReplicatedStorage.RemoteEvent.GiveItemEvent:FireServer("VipPass", "Chakra")
 end)
 
 PizzaPack.Name = "Pizza Pack"
@@ -1524,7 +1454,7 @@ LbbText.BorderSizePixel = 0
 LbbText.Position = UDim2.new(0.579234958, 0, 3.91511703, 0)
 LbbText.Size = UDim2.new(0, 200, 0, 50)
 LbbText.Font = Enum.Font.SourceSans
-LbbText.Text = "This Will Show U all Messages"
+LbbText.Text = "Only Use Lbb for cbring(kill players)"
 LbbText.TextColor3 = Color3.fromRGB(255, 255, 255)
 LbbText.TextSize = 14.000
 
@@ -1661,25 +1591,26 @@ AutoFarmMode.Text = "Auto Farm Mode"
 AutoFarmMode.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoFarmMode.TextSize = 14.000
 AutoFarmMode.MouseButton1Down:connect(function()
-	game.StarterGui:SetCore("SendNotification", {
-		Title = "Ilusion";
-		Text = "Now Just Press AutoFarm";
-		Duration = 15;
-	})
-
+	
+		game.StarterGui:SetCore("SendNotification", {
+		Title = "Tesla Gui";
+			Text = "Now Just Press AutoFarm";
+			Duration = 15;
+		})
+	
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/AdamantiunGG/NinjaAssasinMainScript/main/anti%20afk", true))()
 
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3000, 3000, 3000)
-wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(600000, 600001, 600000)
+	wait()
 
-wait(1)
-while wait() do
-	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if v.name == "Train" then
-			v.Parent = game.Players.LocalPlayer.Character
+	wait(1)
+	while wait() do
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.name == "Train" then
+				v.Parent = game.Players.LocalPlayer.Character
+			end
 		end
 	end
-end
 end)
 
 
@@ -1712,7 +1643,7 @@ ChatBypasser.TextColor3 = Color3.fromRGB(241, 241, 241)
 ChatBypasser.TextSize = 14.000
 ChatBypasser.TextStrokeColor3 = Color3.fromRGB(129, 129, 129)
 ChatBypasser.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
 end)
 FastSword.Name = "FastSword"
 FastSword.Parent = MiscLabel
@@ -1756,142 +1687,12 @@ LbbGui.BorderSizePixel = 0
 LbbGui.Position = UDim2.new(0.604735911, 0, 4.37952471, 0)
 LbbGui.Size = UDim2.new(0, 171, 0, 49)
 LbbGui.Font = Enum.Font.SourceSans
-LbbGui.Text = "Chat Logs"
+LbbGui.Text = "LbbGui"
 LbbGui.TextColor3 = Color3.fromRGB(241, 241, 241)
 LbbGui.TextSize = 14.000
 LbbGui.TextStrokeColor3 = Color3.fromRGB(129, 129, 129)
 LbbGui.MouseButton1Down:connect(function()
-	-- Version: 2.82
-	-- Instances:
-	local ChatGui = Instance.new("ScreenGui")
-	local Frame = Instance.new("Frame")
-	local LogPanel = Instance.new("ScrollingFrame")
-	local Close = Instance.new("TextButton")
-	local Mini = Instance.new("TextButton")
-	local Log = Instance.new("TextButton")
-	local title = Instance.new("TextLabel")
-	--Properties:
-	ChatGui.Name = "ChatGui"
-	ChatGui.Parent = game.Players.LocalPlayer.PlayerGui
-	ChatGui.ResetOnSpawn = false
-
-	Frame.Parent = ChatGui
-	Frame.BackgroundColor3 = Color3.new(0, 0, 0)
-	Frame.BorderSizePixel = 0
-	Frame.Position = UDim2.new(0.0278396439, 0, 0.565217376, 0)
-	Frame.Size = UDim2.new(0, 392, 0, 25)
-	Frame.Active = true
-	Frame.Draggable = true
-
-	LogPanel.Name = "LogPanel"
-	LogPanel.Parent = Frame
-	LogPanel.BackgroundColor3 = Color3.new(0, 0, 0)
-	LogPanel.BorderColor3 = Color3.new(0.223529, 0.223529, 0.223529)
-	LogPanel.Position = UDim2.new(-0.000221580267, 0, 0.968695641, 0)
-	LogPanel.Size = UDim2.new(0, 392, 0, 203)
-	LogPanel.ScrollBarThickness = 5
-	LogPanel.ScrollingEnabled = true
-	LogPanel.CanvasSize=UDim2.new(2,0,100,0)
-
-	Close.Name = "Close"
-	Close.Parent = Frame
-	Close.BackgroundColor3 = Color3.new(1, 1, 1)
-	Close.BackgroundTransparency = 1
-	Close.Position = UDim2.new(0.823979557, 0, 0.0399999991, 0)
-	Close.Size = UDim2.new(0, 69, 0, 24)
-	Close.Font = Enum.Font.SourceSans
-	Close.Text = "Close"
-	Close.TextColor3 = Color3.new(1, 1, 1)
-	Close.TextSize = 14
-
-	Mini.Name = "Mini"
-	Mini.Parent = Frame
-	Mini.BackgroundColor3 = Color3.new(1, 1, 1)
-	Mini.BackgroundTransparency = 1
-	Mini.Position = UDim2.new(0.647959173, 0, 0, 0)
-	Mini.Size = UDim2.new(0, 69, 0, 24)
-	Mini.Font = Enum.Font.SourceSans
-	Mini.Text = "Minimize"
-	Mini.TextColor3 = Color3.new(1, 1, 1)
-	Mini.TextSize = 14
-
-	Log.Name = "Log"
-	Log.Parent = Frame
-	Log.BackgroundColor3 = Color3.new(1, 1, 1)
-	Log.BackgroundTransparency = 1
-	Log.Position = UDim2.new(0.293367326, 0, 0, 0)
-	Log.Size = UDim2.new(0, 69, 0, 24)
-	Log.Font = Enum.Font.SourceSans
-	Log.Text = "Log Chat [ON]"
-	Log.TextColor3 = Color3.new(1, 1, 1)
-	Log.TextSize = 14
-
-	title.Name = "title"
-	title.Parent = Frame
-	title.BackgroundColor3 = Color3.new(1, 1, 1)
-	title.BackgroundTransparency = 1
-	title.Size = UDim2.new(0, 115, 0, 24)
-	title.Font = Enum.Font.SourceSans
-	title.Text = "Chat GUI"
-	title.TextColor3 = Color3.new(1, 1, 1)
-	title.TextSize = 14
-	title.TextXAlignment = Enum.TextXAlignment.Left
-	-- Scripts:
-	local logging = true
-	local minimized = false
-	Log.MouseButton1Down:Connect(function()
-		logging = not logging
-		if logging then Log.Text = "Log Chat [ON]" else Log.Text = "Log Chat [OFF]" end
-	end)
-	Mini.MouseButton1Down:Connect(function()
-		if minimized then
-			LogPanel:TweenSize(UDim2.new(0, 392, 0, 203), "InOut", "Sine", 0.5, false, nil)
-		else
-			LogPanel:TweenSize(UDim2.new(0, 392, 0, 0), "InOut", "Sine", 0.5, false, nil)
-		end
-		minimized = not minimized
-	end)
-	Close.MouseButton1Down:Connect(function()
-		ChatGui:Destroy()
-	end)
-
-	local prevOutputPos = 0
-	function output(plr, msg)
-		if not logging then return end
-		local colour = Color3.fromRGB(255,255,255)
-
-		if string.sub(msg, 1,1) == ":" or string.sub(msg,1,1) == ";" then colour = Color3.fromRGB(255,0,0) elseif string.sub(msg,1,2) == "/w" or string.sub(msg,1,7) == "/whisper" or string.sub(msg,1,5) == "/team" or string.sub(msg,1,2) == "/t" then colour = Color3.fromRGB(0,0,255) else colour = Color3.fromRGB(255,255,255) end
-
-		local o = Instance.new("TextLabel",LogPanel)
-		o.Text = plr.Name .. ": " .. msg
-		o.Size = UDim2.new(0.5,0,.006,0)
-		o.Position = UDim2.new(0,0,.007 + prevOutputPos ,0)
-		o.Font = Enum.Font.SourceSansSemibold
-		o.TextColor3 = colour
-		o.TextStrokeTransparency = 0
-		o.BackgroundTransparency = 0
-		o.BackgroundColor3 = Color3.new(0,0,0)
-		o.BorderSizePixel = 0
-		o.BorderColor3 = Color3.new(0,0,0)
-		o.FontSize = "Size14"
-		o.TextXAlignment = Enum.TextXAlignment.Left
-		o.ClipsDescendants = true
-		prevOutputPos = prevOutputPos + 0.007
-	end
-
-	for i,v in pairs(game.Players:GetChildren()) do
-		v.Chatted:Connect(function(msg)
-			output(v, msg)
-		end)
-	end
-
-	game.Players.ChildAdded:Connect(function(plr)
-		if plr:IsA("Player") then
-			plr.Chatted:Connect(function(msg)
-				output(plr, msg)
-			end)
-		end
-	end)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/AdamantiunGG/RandomScripts/main/LbbGui",true))()
 end)
 RainbowYan.Name = "RainbowYan"
 RainbowYan.Parent = MiscLabel
@@ -1993,7 +1794,29 @@ SafeSpot.TextColor3 = Color3.fromRGB(241, 241, 241)
 SafeSpot.TextSize = 14.000
 SafeSpot.TextStrokeColor3 = Color3.fromRGB(129, 129, 129)
 SafeSpot.MouseButton1Down:connect(function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3000, 3000, 3000)
+	local Char = game.Players.LocalPlayer.Character 
+	_G.SafeSpot = not _G.SafeSpot
+	if _G.SafeSpot then
+		SafeSpot.Text = 'UnSafeSpot'
+		table.insert(Pos, Char.Head.Position)
+	else
+		SafeSpot.Text = 'SafeSpot'
+		wait(0.5)
+		Char.HumanoidRootPart.CFrame = CFrame.new(Pos[1])
+		table.clear(Pos)
+	end
+	while game.RunService.RenderStepped:wait() do
+		if _G.SafeSpot then
+			pcall(function()
+				Char.HumanoidRootPart.CFrame = CFrame.new(-9e6,9e6,-9e6)
+				for i,v in pairs(Char:GetChildren()) do
+					v.Velocity = Vector3.new(0,0,0)
+				end
+			end)
+		else
+			break
+		end
+	end
 end)
 
 local function LFKJCS_fake_script() -- NinjaGui.Script 
@@ -2010,11 +1833,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 
 	tab2.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() combat.Visible = true 
 	end)
 
 	tab1.MouseButton1Down:connect(function()
@@ -2026,11 +1845,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 
 	tab5.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() Gamepasses.Visible = true 
 	end)
 
 	tab6.MouseButton1Down:connect(function()
@@ -2058,6 +1873,34 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 
 	end)
 
+	tab4com.MouseButton1Down:connect(function()
+		Closeall() clothes.Visible = true  
+	end)
+
+	tab3com.MouseButton1Down:connect(function()
+		Closeall()  Swords.Visible = true 
+	end)
+
+	tab2com.MouseButton1Down:connect(function()
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Tesla Gui.";
+			Text = "You're Arealdy On Combat Tab";
+			Duration = 7;
+		})
+	end)
+
+	tab1Com.MouseButton1Down:connect(function()
+		Closeall() about.Visible = true 
+	end)
+
+	tab5com.MouseButton1Down:connect(function()
+		Closeall() Gamepasses.Visible = true 
+	end)
+
+	tab6com.MouseButton1Down:connect(function()
+		Closeall() Misc.Visible = true 
+	end)
+
 	tab4s.MouseButton1Down:connect(function()
 		Closeall() clothes.Visible = true 
 	end)
@@ -2071,11 +1914,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 
 	tab2s.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() combat.Visible = true 
 	end)
 
 	tab1S.MouseButton1Down:connect(function()
@@ -2083,11 +1922,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 
 	tab5s.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() Gamepasses.Visible = true
 	end)
 
 	tab6s.MouseButton1Down:connect(function()
@@ -2106,11 +1941,7 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 		Closeall() Swords.Visible = true 
 	end)
 	tab2cl.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() combat.Visible = true
 	end)
 
 	tab1Cl.MouseButton1Down:connect(function()
@@ -2118,18 +1949,40 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 	end)
 
 	tab5cl.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() Gamepasses.Visible = true
 	end)
 
 	tab6cl.MouseButton1Down:connect(function()
 		Closeall() Misc.Visible = true
 	end)
 
+	tab4Ga.MouseButton1Down:connect(function()
+		Closeall() clothes.Visible = true
+	end)
 
+	tab3Ga.MouseButton1Down:connect(function()
+		Closeall() Swords.Visible = true
+	end)
+
+	tab2Ga.MouseButton1Down:connect(function()
+		Closeall() combat.Visible = true
+	end)
+
+	tab1Ga.MouseButton1Down:connect(function()
+		Closeall() about.Visible = true
+	end)
+
+	tab5Ga.MouseButton1Down:connect(function()
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Tesla Gui";
+			Text = "You're Arealdy On Gamepasses Tab";
+			Duration = 7;
+		})
+	end)
+
+	tab6Ga.MouseButton1Down:connect(function()
+		Closeall() Misc.Visible = true
+	end)
 
 	tab4Misc.MouseButton1Down:connect(function()
 		Closeall() clothes.Visible = true
@@ -2138,18 +1991,10 @@ local function LFKJCS_fake_script() -- NinjaGui.Script
 		Closeall()  Swords.Visible = true
 	end)
 	tab2Misc.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall() combat.Visible = true
 	end)
 	tab5Misc.MouseButton1Down:connect(function()
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Tesla Gui";
-			Text = "Buy The Complete Version to acess it";
-			Duration = 7;
-		})
+		Closeall()  Gamepasses.Visible = true
 	end)
 	tab6Misc.MouseButton1Down:connect(function()
 		game.StarterGui:SetCore("SendNotification", {
@@ -2171,9 +2016,9 @@ coroutine.wrap(LFKJCS_fake_script)()
 --coisas
 
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-	Text = "Script Build 07/1/24)\n Public Version:\nAE%5BV2EB\n Cloud sycn: Not Working\n script build: v2.3";
-	Color = Color3.fromRGB(138,43,226);
-	Font = Enum.Font.SourceSansBold;
-	FontSize = Enum.FontSize.Size96;
+    Text = "Script status(working)\nliveVersion:\nAE%5BV2EE\n Cloud sycn Not working:\n script build: 2.3";
+    Color = Color3.fromRGB(138,43,226);
+    Font = Enum.Font.SourceSansBold;
+    FontSize = Enum.FontSize.Size96;
 })
 wait()
